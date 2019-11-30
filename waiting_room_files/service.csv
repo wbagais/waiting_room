@@ -1,0 +1,4 @@
+service_id,name,severity_level
+1,check_up,2
+2,vaccination,2
+3,emergency,1

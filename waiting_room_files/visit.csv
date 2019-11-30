@@ -1,0 +1,1 @@
+visit_id, patient_id, physician_id, service_id, date, start_time, end_time

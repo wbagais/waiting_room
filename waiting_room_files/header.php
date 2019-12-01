@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+$page = $_GET['page'] ?? '1'; // php >= 7.0
+// in PHP < 7.0 (the old way)
+//$id = isset($_GET['id']) ? $_GET['id'] : '1';
+?>
 <html lang="zxx" class="no-js">
 <head>
   <!-- Mobile Specific Meta -->
@@ -57,10 +62,10 @@
         <div class="row d-flex align-items-center justify-content-center">
           <div class="about-content col-lg-12">
             <h1 class="text-white">
-              CHECK IN
+              <?php echo strtoupper($page) ?>
             </h1>
-            <p class="text-white link-nav"><a href="../../~wbagais/waiting_room/index.php">Home </a>  <span class="lnr lnr-arrow-right"></span>  
-              <a href="../../~wbagais/waiting_room/check_in.php"> Check In</a></p>
+            <p class="text-white link-nav"><a href="../../~wbagais/waiting_room/index.php">Home </a>  <span class="lnr lnr-arrow-right"></span>
+              <a href=<?php echo "../../~wbagais/waiting_room/" . $page . ".php"?>> <?php echo $page ?></a></p>
           </div>
         </div>
       </div>
@@ -72,5 +77,5 @@
               <div class="row d-flex justify-content-center">
                   <div class="menu-content pb-70 col-lg-7">
                       <div class="title text-center">
-                        
+                          <h1 class="mb-10">
 

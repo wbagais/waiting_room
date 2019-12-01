@@ -39,6 +39,7 @@
 		                            	Pediatric
 		                            </p>
 		                            <h4>George Fisher</h4>
+					    <a href = "http://students.hi.gmu.edu/cgi-bin/wbagais/patient_list.cgi?physician_id=1">Click Here For Patient List</a>
 		                        </div>
 		                    </div>
 		                </div>
@@ -51,6 +52,7 @@
 		                            	Pediatric
 		                            </p>
 		                            <h4>Lena Caballero</h4>
+					    <a href = "http://students.hi.gmu.edu/cgi-bin/wbagais/patient_list.cgi?physician_id=2">Click Here For Patient List</a>
 		                        </div>
 		                    </div>
 		                </div>
@@ -63,6 +65,7 @@
 		                            	Pediatric
 		                            </p>
 		                            <h4>Thomas Slaughter</h4>
+					    <a href = "http://students.hi.gmu.edu/cgi-bin/wbagais/patient_list.cgi?physician_id=3">Click Here For Patient List</a>
 		                        </div>
 		                    </div>
 		                </div>
@@ -75,6 +78,7 @@
 		                            	Pediatric Consultant
 		                            </p>
 		                            <h4>Emily Beach</h4>
+					    <a href = "http://students.hi.gmu.edu/cgi-bin/wbagais/patient_list.cgi?physician_id=4">Click Here For Patient List</a>
 		                        </div>
 		                    </div>
 		                </div>

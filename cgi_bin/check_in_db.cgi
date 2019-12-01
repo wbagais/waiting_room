@@ -65,9 +65,12 @@ else:
 
 #check if the patient id exist
 if(len(patient_result) == 0):
+    print('<h1 class="mb-10">')
     print('not valid user id')
+    print("</h1>")
 else:
     #print patient, pysician, service info
+    print('<h1 class="mb-10">')
     print("patient name")
     print(patient_result[0][1]," ",patient_result[0][2],"<br />")
     print("physician name")
@@ -76,10 +79,13 @@ else:
     print(service_result[0][1],"<br />")
     
     # Add the patient to the waiting list
+    p_name = patient_result[0][1] + " " + patient_result[0][2]
     f = open(waiting_path,'a')
     f.write(p_id)
     f.write(",")
-    f.write(str(service_result[0][0]))
+    f.write(p_name)
+    f.write(",")
+    f.write(service_result[0][1])
     f.write("\n")
     f.close()
 
@@ -99,8 +105,9 @@ else:
     if (num_lines > 0):
         waiting_time = str((num_lines-1) * 15)
     print(str(waiting_time), "min <br />")
-
-    f = open("/home/wbagais/waiting_room_files/footer.html", 'r')
-    transcript = f.read()
-    print(transcript)
-    f.close()
+print("</h1>")
+#add the footer code
+f = open("/home/wbagais/waiting_room_files/footer.html", 'r')
+transcript = f.read()
+print(transcript)
+f.close()

@@ -1,2 +1,12 @@
 1,Barbara Donnelly,check_up
 1,Barbara Donnelly,vaccination
+3,Chad Johnson,vaccination
+2,Rhonda Christiansen,vaccination
+2,Rhonda Christiansen,vaccination
+1,Barbara Donnelly,check_up
+2,Rhonda Christiansen,vaccination
+1,Barbara Donnelly,check_up
+2,Rhonda Christiansen,vaccination
+1,Barbara Donnelly,check_up
+1,Barbara Donnelly,check_up
+3,Chad Johnson,vaccination

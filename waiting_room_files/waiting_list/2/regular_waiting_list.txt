@@ -1,2 +1,12 @@
 4,Eddie Alvarez,check_up
 5,Tina Drake,vaccination
+2,Rhonda Christiansen,vaccination
+2,Rhonda Christiansen,vaccination
+5,Tina Drake,vaccination
+6,Oscar Miranda,check_up
+5,Tina Drake,check_up
+6,Oscar Miranda,vaccination
+4,Eddie Alvarez,check_up
+6,Oscar Miranda,vaccination
+3,Chad Johnson,vaccination
+2,Rhonda Christiansen,vaccination

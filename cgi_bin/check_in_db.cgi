@@ -13,6 +13,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import cgi
 import os
+from datetime import datetime
 
 import cgitb
 cgitb.enable()
@@ -49,6 +50,24 @@ sql_physician = sql_physician + physician + ";"
 cursor.execute(sql_physician)
 physician_result = cursor.fetchall()
 
+
+#select max order number
+date = datetime.today().strftime('%Y-%m-%d')
+
+sql_order = "SELECT MAX(order_num), COUNT(*) FROM check_in WHERE check_out=0 AND physician_id = "
+sql_order = sql_order + physician + " AND date = '" + date +"'" 
+
+if(service == '3'):
+    sql_order = sql_order + "AND service_id = 3"
+
+cursor.execute(sql_order)
+order_result = cursor.fetchall()
+max_order = 0
+count_order = 0 
+if (len(order_result) >  0 and order_result[0][0] is not None):
+    max_order = order_result[0][0]
+if (len(order_result) >  0 and order_result[0][1] is not None):
+    count_order =  order_result[0][1]
 #Select service id
 sql_service = "SELECT service_id, name, severity_level FROM service WHERE service_id  = "
 sql_service = sql_service + service + ";"
@@ -66,9 +85,22 @@ else:
 #check if the patient id exist
 if(len(patient_result) == 0):
     print('<h1 class="mb-10">')
-    print('not valid user id')
+    print('Patient ID does NOT exist')
     print("</h1>")
-else:
+else: 
+    #############################
+    try:
+        sql = ''' INSERT INTO check_in (patient_id, physician_id, service_id, date, order_num, check_out) VALUES(?,?,?,?,?,0)'''
+
+        cursor.execute(sql, (p_id,physician,service,date, max_order+1))
+        conn.commit()
+    except sqlite3.IntegrityError as e:
+        print('sqlite error: ', e.args[0]) # column name is not unique
+        conn.close()
+
+
+    ##############################
+
     #print patient, pysician, service info
     print('<h1 class="mb-10">')
     print("patient name")
@@ -102,8 +134,10 @@ else:
 
     print("estimate Waiting time is ")
     waiting_time = 0
-    if (num_lines > 0):
-        waiting_time = str((num_lines-1) * 15)
+    #if (num_lines > 0):
+    if ( count_order >0):
+        #waiting_time = str((num_lines-1) * 15)
+        waiting_time = str((count_order)*15)
     print(str(waiting_time), "min <br />")
 print("</h1>")
 #add the footer code

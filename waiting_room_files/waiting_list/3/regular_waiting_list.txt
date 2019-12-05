@@ -1,2 +1,9 @@
 6,Oscar Miranda,check_up
 7,Benjamin Crumrine,vaccination
+7,Benjamin Crumrine,vaccination
+9,Pearlie Stromberg,check_up
+7,Benjamin Crumrine,vaccination
+8,Shelia Jaquez,check_up
+2,Rhonda Christiansen,vaccination
+2,Rhonda Christiansen,check_up
+3,Chad Johnson,vaccination

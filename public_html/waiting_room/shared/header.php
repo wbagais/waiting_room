@@ -30,6 +30,9 @@
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/main.css">
+  
+<!-- This is JS for the check in form -->
+
   </head>
   <body>
     <header id="header">

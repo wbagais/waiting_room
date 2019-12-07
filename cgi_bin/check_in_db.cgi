@@ -21,17 +21,30 @@ cgitb.enable()
 form = cgi.FieldStorage()
 p_id = form.getvalue('id','')
 service = form.getvalue('service', '')
-physician =  form.getvalue('physician',' ')
+physician =  form.getvalue('physician','')
 
 def get_waiting_number(physician_id, sevice_id):
     print("TEST")
-
-#print("<html>")
 
 f = open("/home/wbagais/waiting_room_files/header.html", 'r')
 transcript = f.read()
 print(transcript)
 f.close()
+
+import sys
+
+#Check if all values exest
+if (p_id == ''):
+    print("<h1> Please Enter the patient number</h1>") 
+    sys.exit(0)
+
+elif(service == ''):
+    print("<h1> Please Select a service</h1>")
+    sys.exit(0)
+
+elif (physician == ''):
+    print("<h1> Please Select a physician</h1>")
+    sys.exit(0)
 
 #connect to the database
 conn = sqlite3.connect('/home/wbagais/waiting_room_files/waiting_room_db.db')
@@ -75,12 +88,6 @@ sql_service = sql_service + service + ";"
 cursor.execute(sql_service)
 service_result = cursor.fetchall()
 
-if (service == '3'):
-    waiting_path = "/home/wbagais/waiting_room_files/waiting_list/"  
-    waiting_path = waiting_path + str(physician_result[0][0])  
-    waiting_path = waiting_path + "/emergency_waiting_list.txt"
-else:
-    waiting_path = "/home/wbagais/waiting_room_files/waiting_list/" + str(physician_result[0][0]) + "/regular_waiting_list.txt"
 
 #check if the patient id exist
 if(len(patient_result) == 0):
@@ -110,27 +117,7 @@ else:
     print("service ")
     print(service_result[0][1],"<br />")
     
-    # Add the patient to the waiting list
-    p_name = patient_result[0][1] + " " + patient_result[0][2]
-    f = open(waiting_path,'a')
-    f.write(p_id)
-    f.write(",")
-    f.write(p_name)
-    f.write(",")
-    f.write(service_result[0][1])
-    f.write("\n")
-    f.close()
-
-    num_lines = file_len(waiting_path)
-    #print(waiting_path) 
-    if(service != '3'):
-        emergency_path = "/home/wbagais/waiting_room_files/waiting_list/" 
-        emergency_path = emergency_path + str(physician_result[0][0]) 
-        emergency_path = emergency_path + "/emergency_waiting_list.txt"
-        
-        if(os.stat(emergency_path).st_size != 0):
-            num_lines = num_lines + file_len(emergency_path)
-        
+    
 
     print("estimate Waiting time is ")
     waiting_time = 0

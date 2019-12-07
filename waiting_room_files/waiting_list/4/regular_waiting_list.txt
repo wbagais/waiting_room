@@ -1,4 +1,0 @@
-8,Shelia Jaquez,vaccination
-5,Tina Drake,check_up
-9,Pearlie Stromberg,check_up
-1,Barbara Donnelly,vaccination

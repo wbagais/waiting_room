@@ -38,7 +38,7 @@ conn = sqlite3.connect('/home/wbagais/waiting_room_files/waiting_room_db.db')
 cursor = conn.cursor()
 
 #select the patient information
-sql = "SELECT fname, lname, six, dob "
+sql = "SELECT fname, lname, sex, dob "
 sql = sql + "FROM patient WHERE patient_id  = "
 sql = sql + patient_id + ";"
 
@@ -131,7 +131,7 @@ action_url = "http://students.hi.gmu.edu/cgi-bin/wbagais/patient_list.cgi?physic
 
 ##form
 print('<form class="form-wrap" id="comment_form" action="', action_url,'"  method="POST">')
-#TODO add form atributes
+# add form atributes
 print('<textarea rows="5" cols="70" name="comment" form = "comment_form"> Enter text here...</textarea>')
 print('<br/>')
 print(' <input type="hidden" id="start_time" name="start_time" value="' + start_time.strftime("%H:%M:%S")  + '">')
